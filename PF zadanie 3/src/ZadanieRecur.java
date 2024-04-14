@@ -14,8 +14,6 @@ public class ZadanieRecur {
     }
 
     public static void main(String[] args) {
-        int n = 10;
-        long result = fib(n);
-        System.out.println("Fibonacci(" + n + ") = " + result);
+        System.out.println("Fibonacci(" + 10 + ") = " + fib(10));
     }
 }

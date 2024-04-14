@@ -1,22 +1,25 @@
 public class Zadanie1 {
     public static void main(String[] args) {
-        int n = 100;
-        long sumOfSquares = getSumOfSquares(n);
-        long squareOfSum = getSquareOfSum(n);
-        long difference = squareOfSum - sumOfSquares;
-        System.out.println("Difference: " + difference);
+        System.out.println("Difference: " + (getSquareOfSum(100) - getSumOfSquares(100, 1)));
     }
 
-    public static long getSumOfSquares(int n) {
-        long sum = 0;
-        for (int i = 1; i <= n; i++) {
-            sum += i * i;
+    public static long getSumOfSquares(int n, int current) {
+        if (current > n) {
+            return 0;
+        } else {
+            return current * current + getSumOfSquares(n, current + 1);
         }
-        return sum;
     }
 
     public static long getSquareOfSum(int n) {
-        long sum = (n * (n + 1)) / 2;
-        return sum * sum;
+        return (long) Math.pow(getSum(1, n), 2);
+    }
+
+    public static long getSum(int current, int n) {
+        if (current > n) {
+            return 0;
+        } else {
+            return current + getSum(current + 1, n);
+        }
     }
 }
